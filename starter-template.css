@@ -1,0 +1,55 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.container-twitter{
+	height: 10rem;
+	width: 40rem;
+	float: left;
+	border-bottom: solid black;
+	text-align: center;
+
+}
+
+.containter-twitter, h4{
+	padding-top: 2rem;
+}
+
+.container-alchemy{
+	height: 40rem;
+	width: 100rem;
+	margin-left:40rem;	
+	border: solid black;
+}
+
+.container-results{
+	min-height: 20rem;
+	width: 100rem;
+	margin-left: 40rem;
+	border-left: solid black;
+	border-right: solid black;
+	border-bottom: solid black;
+}	
+
+.intro {
+	text-align: center;
+	font-size: 2rem;
+}
+
+.alchemy-search {
+	margin-left: 1rem;
+	float: left;
+}
+
+.alchemy-set-date{
+	float:right;
+	margin-right: 10rem;
+}
+
+.set-date {
+
+}
