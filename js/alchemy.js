@@ -9,14 +9,15 @@ $(document).ready(function(){
 		var topic = $(this).find("input[name='topic']").val();
 		var dateStart = $('.start').val();
 		var dateEnd = $('.end').val();
+		var apiKEY = $('.apikey').val();
 		
 		var start = Date.parse(dateStart);
 		var end = Date.parse(dateEnd);
-		getDatabase(topic, start, end);
+		getDatabase(topic, start, end, apiKEY);
 
 		//call function and pass 'topic' -> function that gets all results
 		//pass 'start' and 'end' to parameters for call
-	})
+	});
 
 	$('.select-news').submit(function(event){
 		//code for select news
@@ -25,61 +26,51 @@ $(document).ready(function(){
 		var topic = $(this).find("input[name='select']").val();
 		var dateStart = $('.start').val();
 		var dateEnd = $('.end').val();
+		var apiKEY = $('.apikey').val();
+
 
 		var start = Date.parse(dateStart);
 		var end = Date.parse(dateEnd);
-		getSelect(topic, start, end);
+		getSelect(topic, start, end, apiKEY);
 
 		//call function and pass topic ->function that gets select news orgs
 		//pass 'start' and 'end' to parameters for call
-	})
+	});
 
 /*********** getRequests **********/
 
 //This function searches the entire database for news
 
-var getDatabase = function(topic, start, end){
+var getDatabase = function(topic, start, end, apiKEY){
 
-
-	//the params we need to pass
-	var request = {
-					apikey: "87feff35dfd60ac08ba524f5f739f5e6d961011d", //change to 'apikey'?
-					start: start,
-					end: end, 
-					outputMode: "json"
-					//title: topic,
-	}
-
-/*  //Sample Query
-https://gateway-a.watsonplatform.net/calls/data/GetNews
-?outputMode=json&start=now-1d&end=now&count=5&
-q.enriched.url.enrichedTitle.keywords.keyword.text=paintings&
-return=enriched.url.url,enriched.url.title&apikey=YOUR_APP_APIKEY
-*/
-
-/*
-	//My Query String? ???
-"https://gateway-a.watsonplatform.net/calls/data/GetNews
-?outputMode=json&start=" + start + "&end=" + end + "&count=10&
-q.enriched.url.enrichedTitle.keywords.keyword.text=" + topic + "&
-return=enriched.url.url,enriched.url.title&apikey= " + apikey  
-*/
-	var result = $.ajax({
-		url: "https://gateway-a.watsonplatform.net/calls/data/GetNews", 
-		data: request,
-		dataType: "jsonp", // change to 'outputMode'? or dataType
+//This ajax call should work.  wait for new apikey and test
+$.ajax({
+	url: "https://gateway-a.watsonplatform.net/calls/data/GetNews",
+	data: {
+		apikey: apiKEY,
+		start: 'now-10d', //try passed in arguments
+		end: 'now',
+		outputMode: "json",
+		maxResults: '10',
+		'q.enriched.url.title': topic,
+		return: 'enriched.url.title,enriched.url.author,original.url',
+	},
+	
 		type: "GET",
-	})
-
+		success: function(data) {
+			console.log(data);
+		},
+		failure: function(error) {
+			console.log('Fail', argument);
+		}
+		
+	});
 };
 
-//This function searches the database for select news publications
-
-var getSelect = function(topic, start, end){
+});
 
 
-
-}
+//var getSelect = function(topic, start, end){};
 
 /********** postResults ***********/
 
@@ -89,14 +80,3 @@ var getSelect = function(topic, start, end){
 
 
 /*********** Error ***********/
-
-
-})
-
-/* API Key
-
-87feff35dfd60ac08ba524f5f739f5e6d961011d
-
-*/
-
-

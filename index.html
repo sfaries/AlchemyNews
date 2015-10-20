@@ -68,7 +68,7 @@
          <input type="text" placeholder='e.g. "President Obama"' name="topic" size="30" autofocus required>
          <input type="submit" value="Submit">
         </form>
-       <h3>Search for the select set of news organizations.</h3>
+       <h3 id="selectSearch">Search for the select set of news organizations.</h3>
        <form class="select-news" onsubmit="return false;">
         <input type="text" placeholder='e.g. "Obamacare" ' name="select" size="30"  required>
         <input type="submit" value="Submit">
@@ -77,9 +77,11 @@
 
       <div class="alchemy-set-date">
          <form class="set-date">
-            <h3> Set Start Date: </h3>
+            <h4>API Key </h4>
+            <input class="apikey" type="text" name="apikey">
+            <h4> Set Start Date: </h4>
             <input class="start" type="date" name="start">
-            <h3> Set End Date: </h3>
+            <h4> Set End Date: </h4>
             <input class="end"type="date" name="end">
         </form>
       </div>

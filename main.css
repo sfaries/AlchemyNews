@@ -20,7 +20,7 @@ body {
 }
 
 .container-alchemy{
-	height: 40rem;
+	height: 50rem;
 	width: 100rem;
 	margin-left:40rem;	
 	border: solid black;
@@ -45,8 +45,12 @@ body {
 	float: left;
 }
 
+#selectSearch {
+	margin-top: 5rem;
+}
 .alchemy-set-date{
 	float:right;
+	margin-top:0;
 	margin-right: 10rem;
 }
 
