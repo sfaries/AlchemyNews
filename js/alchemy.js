@@ -53,12 +53,17 @@ $.ajax({
 		outputMode: "json",
 		maxResults: '10',
 		'q.enriched.url.title': topic,
+		return: 'enriched.url.title,enriched.url.url,enriched.url.author',
+		/*
 		return: 'enriched.url.title,enriched.url.author,original.url',
+		*/
+
 	},
 	
 		type: "GET",
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
+			showDatabase(data);
 		},
 		failure: function(error) {
 			console.log('Fail', argument);
@@ -67,14 +72,40 @@ $.ajax({
 	});
 };
 
+/********** postResults ***********/
+
+//This function posts the results from searching the entire database
+
+var showDatabase = function(data){
+	console.log(data);
+
+	var result = $('.templates allNews').clone();
+
+
+	var title = result.find('.title');
+	title.text(data.result.docs.source.enriched.url.author);
+
+	var author = result.find('.author');
+	author.text(data.result.docs.source.enriched.url.author);
+
+	var url = result.find('.url');
+	url.text(data.result.docs.source.enriched.url.url);
+
+
+
+	return result;
+};
+
+
+
+
+
 });
 
 
 //var getSelect = function(topic, start, end){};
 
-/********** postResults ***********/
 
-//This function posts the results from searching the entire database
 
 //This function posts the results from searching the select publications
 
