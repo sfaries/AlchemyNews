@@ -27,7 +27,7 @@ body {
 }
 
 .container-results{
-	min-height: 20rem;
+	min-height: 5rem;
 	width: 100rem;
 	margin-left: 40rem;
 	border-left: solid black;
@@ -63,5 +63,27 @@ body {
 }
 
 .hidden {
+	/*display:; */
+	border-color: orange;
+	border-style: solid;
+	margin-top: 70rem;
+	height: 20rem;
+	width: 50rem;
+}
+
+.result {
+	border: 1px solid black;
+	padding: 5px;
+	margin: 0 auto 1em auto;
+	height: 5rem;
+	width: 30rem;
+}
+
+.templatesHidden {
 	display:none;
 }
+
+.hits {
+	border: 1px solid black;
+	padding: 5px;
+	margin: 0 auto 1em auto;}

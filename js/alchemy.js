@@ -63,7 +63,13 @@ $.ajax({
 		type: "GET",
 		success: function(data) {
 			//console.log(data);
-			showDatabase(data);
+
+			$.each(data.result.docs, function(i, item){
+				//console.log(item);
+				var article = showDatabase(item);
+			})
+			
+			//showDatabase(data);
 		},
 		failure: function(error) {
 			console.log('Fail', argument);
@@ -76,33 +82,41 @@ $.ajax({
 
 //This function posts the results from searching the entire database
 
-var showDatabase = function(data){
-	console.log(data);
-
-	var result = $('.templates allNews').clone();
+var showDatabase = function(article){ //changed from data
+	//console.log(article);
 
 
-	var title = result.find('.title');
-	title.text(data.result.docs.source.enriched.url.author);
+	
+	var result = $('.templatesHidden .hits').clone();
+	console.log(result);
 
-	var author = result.find('.author');
-	author.text(data.result.docs.source.enriched.url.author);
+	var title = result.find('.titleArticle');
+	title.text(article.source.enriched.url.title);
 
-	var url = result.find('.url');
-	url.text(data.result.docs.source.enriched.url.url);
+	var author = result.find('.authorArticle');
+	author.text(article.source.enriched.url.author);
 
+	var url = result.find('.urlArticle');
+	url.text(article.source.enriched.url.url);
 
-
+	//console.log(article.source.enriched.url.title);
+	//console.log(article.source.enriched.url.author);
+	//console.log(article.source.enriched.url.url);
 	return result;
 };
 
 
 
 
-
 });
 
+//for loop for iterating over data object
+/*
+for(data.result.docs[0]; data.result.docs[9]; data.result.docs++){
 
+				console.log(data.result.docs);
+		}
+*/
 //var getSelect = function(topic, start, end){};
 
 
