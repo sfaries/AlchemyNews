@@ -26,15 +26,6 @@ body {
 	border: solid black;
 }
 
-.container-results{
-	min-height: 5rem;
-	width: 100rem;
-	margin-left: 40rem;
-	border-left: solid black;
-	border-right: solid black;
-	border-bottom: solid black;
-}	
-
 .intro {
 	text-align: center;
 	font-size: 2rem;
@@ -48,6 +39,7 @@ body {
 #selectSearch {
 	margin-top: 5rem;
 }
+
 .alchemy-set-date{
 	float:right;
 	margin-top:0;
@@ -58,26 +50,9 @@ body {
 
 }
 
-.count {
-	margin-left: 2rem;
-}
-
-.hidden {
-	/*display:; */
-	border-color: orange;
-	border-style: solid;
-	margin-top: 70rem;
-	height: 20rem;
-	width: 50rem;
-}
-
-.result {
-	border: 1px solid black;
-	padding: 5px;
-	margin: 0 auto 1em auto;
-	height: 5rem;
-	width: 30rem;
-}
+.container-results{
+	margin-top: 40rem;
+}	
 
 .templatesHidden {
 	display:none;
@@ -86,4 +61,5 @@ body {
 .hits {
 	border: 1px solid black;
 	padding: 5px;
-	margin: 0 auto 1em auto;}
+	margin: 0 auto 1em auto;
+}

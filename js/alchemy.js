@@ -67,7 +67,8 @@ $.ajax({
 			$.each(data.result.docs, function(i, item){
 				//console.log(item);
 				var article = showDatabase(item);
-			})
+				$('.results').append(article);
+			});
 			
 			//showDatabase(data);
 		},
@@ -88,7 +89,7 @@ var showDatabase = function(article){ //changed from data
 
 	
 	var result = $('.templatesHidden .hits').clone();
-	console.log(result);
+	//console.log(result);
 
 	var title = result.find('.titleArticle');
 	title.text(article.source.enriched.url.title);
