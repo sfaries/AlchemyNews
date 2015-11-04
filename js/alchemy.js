@@ -67,7 +67,7 @@ $.ajax({
 			$.each(data.result.docs, function(i, item){
 				//console.log(item);
 				var article = showDatabase(item);
-				$('.results').append(article);
+				$('.container-results').append(article);
 			});
 			
 			//showDatabase(data);
